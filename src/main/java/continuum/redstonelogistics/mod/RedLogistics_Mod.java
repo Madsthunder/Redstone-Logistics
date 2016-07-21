@@ -5,8 +5,6 @@ import continuum.redstonelogistics.loaders.BlockLoader;
 import continuum.redstonelogistics.loaders.ClientLoader;
 import continuum.redstonelogistics.loaders.ItemLoader;
 import continuum.redstonelogistics.loaders.UtilityLoader;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

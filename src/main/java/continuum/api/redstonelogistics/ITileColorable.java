@@ -2,7 +2,6 @@ package continuum.api.redstonelogistics;
 
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.IStringSerializable;
 
 public interface ITileColorable
 {

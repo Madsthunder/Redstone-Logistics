@@ -1,15 +1,10 @@
 package continuum.redstonelogistics.tileentity;
 
-import continuum.api.multipart.MultipartInfo;
 import continuum.api.redstonelogistics.ITileColorable;
-import continuum.api.redstonelogistics.ITileColorable.ConduitColors;
 import continuum.core.mod.Core_OH;
 import continuum.essentials.mod.CTMod;
-import continuum.multipart.blocks.BlockMultipart;
-import continuum.multipart.tileentity.TileEntityMultiblock;
 import continuum.redstonelogistics.mod.RedLogistics_EH;
 import continuum.redstonelogistics.mod.RedLogistics_OH;
-import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;

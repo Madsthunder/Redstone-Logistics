@@ -4,16 +4,13 @@ import continuum.essentials.block.ConnectableCuboids;
 import continuum.essentials.mod.CTMod;
 import continuum.essentials.mod.ObjectLoader;
 import continuum.redstonelogistics.blocks.BlockConduit;
-import continuum.redstonelogistics.blocks.BlockDummy;
 import continuum.redstonelogistics.blocks.BlockRedstoneWire;
 import continuum.redstonelogistics.cuboids.ConduitCuboids;
 import continuum.redstonelogistics.mod.RedLogistics_EH;
 import continuum.redstonelogistics.mod.RedLogistics_OH;
 import continuum.redstonelogistics.tileentity.TileEntityRedstoneWire;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class BlockLoader implements ObjectLoader<RedLogistics_OH, RedLogistics_EH>

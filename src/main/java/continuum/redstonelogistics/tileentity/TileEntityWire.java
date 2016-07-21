@@ -5,9 +5,8 @@ import java.util.Map;
 import org.apache.commons.lang3.tuple.Pair;
 
 import continuum.api.multipart.MultipartInfo;
+import continuum.api.multipart.TileEntityMultiblock;
 import continuum.essentials.tileentity.CTTileEntity;
-import continuum.multipart.tileentity.TileEntityMultiblock;
-import continuum.redstonelogistics.blocks.BlockRedstoneWire;
 import continuum.redstonelogistics.blocks.BlockWire;
 import continuum.redstonelogistics.cuboids.WireCuboids;
 import net.minecraft.block.state.IBlockState;

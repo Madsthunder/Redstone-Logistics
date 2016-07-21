@@ -1,20 +1,17 @@
 package continuum.redstonelogistics.tileentity;
 
+import continuum.api.multipart.BlockMultipart;
 import continuum.api.multipart.MultipartInfo;
+import continuum.api.multipart.TileEntityMultiblock;
 import continuum.core.mod.Core_OH;
 import continuum.essentials.mod.CTMod;
 import continuum.essentials.tileentity.CTTileEntity;
-import continuum.multipart.blocks.BlockMultipart;
-import continuum.multipart.tileentity.TileEntityMultiblock;
 import continuum.redstonelogistics.cuboids.ConduitCuboids;
 import continuum.redstonelogistics.mod.RedLogistics_EH;
 import continuum.redstonelogistics.mod.RedLogistics_OH;
 import net.minecraft.block.Block;
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IStringSerializable;
 
 public class TileEntityConduit extends CTTileEntity
 {
@@ -60,7 +57,7 @@ public class TileEntityConduit extends CTTileEntity
 		{
 			MultipartInfo info = ((TileEntityMultiblock)this.getWorld().getTileEntity(this.getPos())).findInfoForEntity(this);
 			if(info != null)
-				return this.blockType = info.getBlock();
+				this.blockType = info.getBlock();
 		}
 		return this.blockType;
 	}

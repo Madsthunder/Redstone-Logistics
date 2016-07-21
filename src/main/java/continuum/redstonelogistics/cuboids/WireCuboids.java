@@ -10,12 +10,10 @@ import continuum.essentials.block.BlockConnectable;
 import continuum.essentials.block.ICuboid;
 import continuum.essentials.block.StaticCuboid;
 import continuum.redstonelogistics.blocks.BlockWire;
-import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.common.property.IExtendedBlockState;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public enum WireCuboids implements ICuboid
 {

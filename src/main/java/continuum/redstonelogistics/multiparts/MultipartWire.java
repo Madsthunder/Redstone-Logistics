@@ -3,9 +3,9 @@ package continuum.redstonelogistics.multiparts;
 import java.util.List;
 
 import continuum.api.multipart.MultipartInfo;
+import continuum.api.multipart.TileEntityMultiblock;
 import continuum.api.multipart.implementations.Multipart;
 import continuum.essentials.block.ICuboid;
-import continuum.multipart.tileentity.TileEntityMultiblock;
 import continuum.redstonelogistics.blocks.BlockWire;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
