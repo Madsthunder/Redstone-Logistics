@@ -1,0 +1,96 @@
+{
+    "elements":
+    [
+        {
+            "_comment": "north-west corner",
+            "from": [ 2, 0, 2 ],
+            "to": [ 14, 2, 3 ],
+            "faces":
+            {
+                "down": { "texture": "#indicator" },
+                "up": { "texture": "#indicator" }
+            }
+        },
+        
+        {
+            "_comment": "south-west corner",
+            "from": [ 2, 0, 13 ],
+            "to": [ 3, 2, 14 ],
+            "faces":
+            {
+                "down": { "texture": "#indicator" },
+                "up": { "texture": "#indicator" }
+            }
+        },
+        
+        {
+            "_comment": "north-east corner",
+            "from": [ 13, 0, 2 ],
+            "to": [ 14, 2, 3 ],
+            "faces":
+            {
+                "down": { "texture": "#indicator" },
+                "up": { "texture": "#indicator" }
+            }
+        },
+        
+        {
+            "_comment": "south-east corner",
+            "from": [ 13, 0, 13 ],
+            "to": [ 14, 2, 14 ],
+            "faces":
+            {
+                "down": { "texture": "#indicator" },
+                "up": { "texture": "#indicator" }
+            }
+        },
+        
+        {
+            "_comment": "north",
+            "from": [ 3, 0, 2 ],
+            "to": [ 13, 2, 3 ],
+            "faces":
+            {
+                "dowm": { "texture": "#indicator" },
+                "up": { "texture": "#indicator" },
+                "south": { "texture": "#indicator" }
+            }
+        },
+        
+        {
+            "_comment": "south",
+            "from": [ 3, 0, 13 ],
+            "to": [ 13, 2, 14 ],
+            "faces":
+            {
+                "dowm": { "texture": "#indicator" },
+                "up": { "texture": "#indicator" },
+                "north": { "texture": "#indicator" }
+            }
+        },
+        
+        {
+            "_comment": "west",
+            "from": [ 2, 0, 3 ],
+            "to": [ 3, 2, 13 ],
+            "faces":
+            {
+                "dowm": { "texture": "#indicator" },
+                "up": { "texture": "#indicator" },
+                "east": { "texture": "#indicator" }
+            }
+        },
+        
+        {
+            "_comment": "east",
+            "from": [ 13, 0, 3 ],
+            "to": [ 14, 2, 13 ],
+            "faces":
+            {
+                "dowm": { "texture": "#indicator" },
+                "up": { "texture": "#indicator" },
+                "west": { "texture": "#indicator" }
+            }
+        }
+    ]
+}

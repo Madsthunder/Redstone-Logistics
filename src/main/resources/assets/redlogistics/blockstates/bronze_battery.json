@@ -1,0 +1,33 @@
+{
+    "_comment": "THIS IS NOT A NORMAL MINECRAFT BLOCKSTATE FILE, THIS IS A FORGE BLOCKSTATE JSON. More Info <<< http://mcforge.readthedocs.io/en/latest/blockstates/forgeBlockstates/ >>> More Info",
+    "forge_marker": 1,
+    "defaults":
+    {
+        "textures":
+        {
+            "battery": "metalextras:blocks/bronze_block",
+            "particle": "#battery",
+            "down" : "minecraft:blocks/wool_colored_silver",
+            "up" : "minecraft:blocks/wool_colored_silver",
+            "north" : "minecraft:blocks/wool_colored_silver",
+            "south" : "minecraft:blocks/wool_colored_silver",
+            "west" : "minecraft:blocks/wool_colored_silver",
+            "east" : "minecraft:blocks/wool_colored_silver"
+        },
+        "model": "redlogistics:battery_frame",
+        "uvlock": true
+    },
+    
+    "variants":
+    {
+        "inventory": [ "submodel": "redlogistics:battery_frame" ],
+        "down":  
+        {
+            "both": { "textures": { "down": "minecraft:blocks/wool_colored_purple" } },
+            "input": { "textures": { "down": "minecraft:blocks/wool_colored_blue" } },
+            "output": { "textures": { "down": "minecraft:blocks/wool_colored_orange" } }
+        }
+    }
+}
+                
+    

@@ -1,7 +1,7 @@
 package continuum.redstonelogistics.tileentity;
 
 import continuum.api.redstonelogistics.ITileColorable;
-import continuum.core.mod.Core_OH;
+import continuum.core.mod.CTCore_OH;
 import continuum.essentials.mod.CTMod;
 import continuum.redstonelogistics.mod.RedLogistics_EH;
 import continuum.redstonelogistics.mod.RedLogistics_OH;
@@ -11,13 +11,12 @@ import net.minecraft.util.EnumFacing;
 
 public class TileEntityConduitColored extends TileEntityConduit implements ITileColorable
 {
-	public final CTMod<RedLogistics_OH, RedLogistics_EH> mod = Core_OH.mods.get("redlogistics");
-	private final Class<? extends TileEntityConduitColored> clasz;
+	public final CTMod<RedLogistics_OH, RedLogistics_EH> mod = CTCore_OH.mods.get("redlogistics");
 	private ConduitColors color = ConduitColors.NONE;
 	
-	public TileEntityConduitColored(Class<? extends TileEntityConduitColored> clasz)
+	public TileEntityConduitColored(Class<? extends TileEntityConduit> clasz)
 	{
-		this.clasz = clasz;
+		super(clasz);
 	}
 	
 	@Override
@@ -37,10 +36,10 @@ public class TileEntityConduitColored extends TileEntityConduit implements ITile
 	}
 	
 	@Override
-	public Boolean canConnect(EnumFacing to)
+	public boolean canConnect(EnumFacing to)
 	{
 		TileEntity entity = this.getWorld().getTileEntity(this.getPos().offset(to));
-		return super.canConnect(to) && this.clasz.isInstance(entity) ? ((ITileColorable)entity).getColor().canConnectTo(this) : false;
+		return super.canConnect(to) && entity instanceof ITileColorable ? ((ITileColorable)entity).getColor().canConnectTo(this) : false;
 	}
 	
 	@Override

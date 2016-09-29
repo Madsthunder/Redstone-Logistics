@@ -36,12 +36,12 @@ public interface ITileColorable
 			return null;
 		}
 		
-		public Boolean canConnectTo(ITileColorable tile)
+		public boolean canConnectTo(ITileColorable tile)
 		{
 			return this.canConnectTo(tile.getColor());
 		}
 		
-		public Boolean canConnectTo(ConduitColors color)
+		public boolean canConnectTo(ConduitColors color)
 		{
 			return color == NONE || this == NONE ? true : color == this;
 		}
