@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-import continuum.api.multipart.MultipartInfo;
+import continuum.api.multipart.MultipartState;
 import continuum.essentials.block.BlockConnectable;
 import continuum.essentials.block.CuboidSelector;
 import continuum.essentials.block.IBlockBoundable;
@@ -156,7 +156,7 @@ public abstract class BlockWire extends Block implements IBlockBoundable
 	
 	public abstract Boolean canConnectTo(EnumFacing attached, IBlockAccess access, BlockPos pos, EnumFacing direction);
 	
-	public Boolean canConnectToMultipart(MultipartInfo info, EnumFacing direction)
+	public Boolean canConnectToMultipart(MultipartState info, EnumFacing direction)
 	{
 		return false;
 	}

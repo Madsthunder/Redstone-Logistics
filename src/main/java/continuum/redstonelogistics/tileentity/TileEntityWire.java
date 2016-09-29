@@ -4,8 +4,8 @@ import java.util.Map;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import continuum.api.multipart.MultipartInfo;
-import continuum.api.multipart.MultipartInfoList;
+import continuum.api.multipart.MultipartState;
+import continuum.api.multipart.MultipartStateList;
 import continuum.essentials.tileentity.TileEntitySyncable;
 import continuum.redstonelogistics.blocks.BlockWire;
 import continuum.redstonelogistics.cuboids.WireCuboids;
@@ -28,19 +28,19 @@ public abstract class TileEntityWire extends TileEntitySyncable
 		return attached.getAxis() != to.getAxis();
 	}
 	
-	public boolean canConnect(EnumFacing attached, EnumFacing to, MultipartInfoList infoList)
+	public boolean canConnect(EnumFacing attached, EnumFacing to, MultipartStateList infoList)
 	{
 		if(attached.getAxis() != to.getAxis() && !this.cuboidIntersects(attached, to, infoList))
 		{
 			IBlockState state;
-			for (MultipartInfo info : infoList.getAllInfoOfTileEntityInstance(this.clasz))
+			for (MultipartState info : infoList.getAllInfoOfTileEntityInstance(this.clasz))
 				if(info.getTileEntity() != this && (state = info.getState()).getBlock() instanceof BlockWire)
 					return state.getValue(BlockWire.direction) == to;
 		}
 		return this.canConnect(attached, to);
 	}
 	
-	public boolean cuboidIntersects(EnumFacing attached, EnumFacing to, MultipartInfoList infoList)
+	public boolean cuboidIntersects(EnumFacing attached, EnumFacing to, MultipartStateList infoList)
 	{
 		WireCuboids intersection = this.getIntersections().get(Pair.of(attached, to));
 		return intersection == null ? false : infoList.boxIntersectsList(null, intersection.getSelectableCuboid(), false, true);

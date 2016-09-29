@@ -1,6 +1,6 @@
 package continuum.redstonelogistics.tileentity;
 
-import continuum.api.multipart.MultipartInfoList;
+import continuum.api.multipart.MultipartStateList;
 import continuum.api.redstonelogistics.ConduitSystem;
 import continuum.api.redstonelogistics.IConduitEnergyStorage;
 import continuum.redstonelogistics.cuboids.ConduitCuboids;
@@ -37,9 +37,9 @@ public class TileEntityEnergyConduit extends TileEntityConduitColored
 		if(capability == CapabilityEnergy.ENERGY && this.storage != null)
 		{
 			TileEntity entity = this.getWorld().getTileEntity(this.getPos());
-			if(entity.hasCapability(MultipartInfoList.MULTIPARTINFOLIST, null))
+			if(entity.hasCapability(MultipartStateList.MULTIPARTINFOLIST, null))
 			{
-				MultipartInfoList infoList = entity.getCapability(MultipartInfoList.MULTIPARTINFOLIST, null);
+				MultipartStateList infoList = entity.getCapability(MultipartStateList.MULTIPARTINFOLIST, null);
 				return super.canConnect(side) && !infoList.boxIntersectsList(infoList.findMultipartForEntity(this), ConduitCuboids.values()[side.ordinal() + 1].getShowableCuboid(), true, false);
 			}
 			else

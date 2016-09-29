@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 import com.google.common.collect.Sets;
 
-import continuum.api.multipart.MultipartInfoList;
+import continuum.api.multipart.MultipartStateList;
 import continuum.core.mod.CTCore_OH;
 import continuum.essentials.mod.CTMod;
 import continuum.essentials.tileentity.TileEntitySyncable;
@@ -49,7 +49,7 @@ public class TileEntityConduit extends TileEntitySyncable
 		return !this.blocked.contains(to) && this.clasz == null ? true : this.clasz.isInstance(this.getWorld().getTileEntity(this.getPos().offset(to)));
 	}
 	
-	public boolean canConnect(EnumFacing to, MultipartInfoList infoList)
+	public boolean canConnect(EnumFacing to, MultipartStateList infoList)
 	{
 		return this.canConnect(to) && !infoList.boxIntersectsList(infoList.findMultipartForEntity(this), ConduitCuboids.values()[to.ordinal() + 1].getShowableCuboid(), true, false);
 	}
@@ -60,8 +60,8 @@ public class TileEntityConduit extends TileEntitySyncable
 		if(this.getWorld() != null)
 		{
 			TileEntity entity = this.getWorld().getTileEntity(this.getPos());
-			if(entity.hasCapability(MultipartInfoList.MULTIPARTINFOLIST, null))
-				this.blockType = entity.getCapability(MultipartInfoList.MULTIPARTINFOLIST, null).findMultipartForEntity(this).getBlock();
+			if(entity.hasCapability(MultipartStateList.MULTIPARTINFOLIST, null))
+				this.blockType = entity.getCapability(MultipartStateList.MULTIPARTINFOLIST, null).findMultipartForEntity(this).getBlock();
 		}
 		return super.getBlockType();
 	}

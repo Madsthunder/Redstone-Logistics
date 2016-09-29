@@ -3,8 +3,8 @@ package continuum.redstonelogistics.multiparts;
 import java.util.List;
 
 import continuum.api.multipart.Multipart;
-import continuum.api.multipart.MultipartInfo;
-import continuum.api.multipart.MultipartInfoList;
+import continuum.api.multipart.MultipartState;
+import continuum.api.multipart.MultipartStateList;
 import continuum.essentials.block.ICuboid;
 import continuum.redstonelogistics.blocks.BlockWire;
 import net.minecraft.block.Block;
@@ -27,14 +27,14 @@ public class MultipartWire extends Multipart
 	
 	@Override
 	@Optional.Method(modid = "ctmultipart")
-	public boolean canPlaceIn(IBlockAccess access, BlockPos pos, IBlockState state, MultipartInfoList infoList, RayTraceResult result)
+	public boolean canPlaceIn(IBlockAccess access, BlockPos pos, IBlockState state, MultipartStateList infoList, RayTraceResult result)
 	{
 		return false;
 	}
 	
 	@Override
 	@Optional.Method(modid = "ctmultipart")
-	public List<ICuboid> getSelectableCuboids(MultipartInfo info)
+	public List<ICuboid> getSelectableCuboids(MultipartState info)
 	{
 		return null;
 	}
