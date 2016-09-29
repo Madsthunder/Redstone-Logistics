@@ -5,14 +5,14 @@ import java.util.Map;
 import org.apache.commons.lang3.tuple.Pair;
 
 import continuum.api.multipart.MultipartInfo;
-import continuum.api.multipart.TileEntityMultiblock;
-import continuum.essentials.tileentity.CTTileEntity;
+import continuum.api.multipart.MultipartInfoList;
+import continuum.essentials.tileentity.TileEntitySyncable;
 import continuum.redstonelogistics.blocks.BlockWire;
 import continuum.redstonelogistics.cuboids.WireCuboids;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 
-public abstract class TileEntityWire extends CTTileEntity
+public abstract class TileEntityWire extends TileEntitySyncable
 {
 	private final Class<? extends TileEntityWire> clasz;
 	
@@ -23,26 +23,26 @@ public abstract class TileEntityWire extends CTTileEntity
 	
 	public abstract Map<Pair<EnumFacing, EnumFacing>, WireCuboids> getIntersections();
 	
-	public Boolean canConnect(EnumFacing attached, EnumFacing to)
+	public boolean canConnect(EnumFacing attached, EnumFacing to)
 	{
 		return attached.getAxis() != to.getAxis();
 	}
 	
-	public Boolean canConnect(EnumFacing attached, EnumFacing to, TileEntityMultiblock multiblock)
+	public boolean canConnect(EnumFacing attached, EnumFacing to, MultipartInfoList infoList)
 	{
-		if(attached.getAxis() != to.getAxis() && !this.cuboidIntersects(attached, to, multiblock))
+		if(attached.getAxis() != to.getAxis() && !this.cuboidIntersects(attached, to, infoList))
 		{
 			IBlockState state;
-			for (MultipartInfo info : multiblock.getAllDataOfTileEntityInstance(this.clasz))
+			for (MultipartInfo info : infoList.getAllInfoOfTileEntityInstance(this.clasz))
 				if(info.getTileEntity() != this && (state = info.getState()).getBlock() instanceof BlockWire)
 					return state.getValue(BlockWire.direction) == to;
 		}
 		return this.canConnect(attached, to);
 	}
 	
-	public Boolean cuboidIntersects(EnumFacing attached, EnumFacing to, TileEntityMultiblock multiblock)
+	public boolean cuboidIntersects(EnumFacing attached, EnumFacing to, MultipartInfoList infoList)
 	{
 		WireCuboids intersection = this.getIntersections().get(Pair.of(attached, to));
-		return intersection == null ? false : multiblock.boxIntersectsMultipart(null, intersection.getSelectableCuboid(), false, true);
+		return intersection == null ? false : infoList.boxIntersectsList(null, intersection.getSelectableCuboid(), false, true);
 	}
 }

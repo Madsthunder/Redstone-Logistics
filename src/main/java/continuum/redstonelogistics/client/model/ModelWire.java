@@ -38,11 +38,6 @@ public class ModelWire implements IModel, IResourceManagerReloadListener
 	private static IModel stub_west;
 	private static IModel stub_east;
 	
-	public ModelWire()
-	{
-		
-	}
-	
 	@Override
 	public Collection<ResourceLocation> getDependencies()
 	{
@@ -200,7 +195,7 @@ public class ModelWire implements IModel, IResourceManagerReloadListener
 		
 		private static Boolean checkUVR(IModel... models)
 		{
-			Boolean b = true;
+			boolean b = true;
 			IModel missing = ModelLoaderRegistry.getMissingModel();
 			for (IModel model : models)
 				if(b)

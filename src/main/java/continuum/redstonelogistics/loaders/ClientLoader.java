@@ -1,6 +1,8 @@
 package continuum.redstonelogistics.loaders;
 
-import continuum.core.mod.Core_OH;
+import com.google.common.base.Functions;
+
+import continuum.core.mod.CTCore_OH;
 import continuum.essentials.mod.CTMod;
 import continuum.essentials.mod.ObjectLoader;
 import continuum.redstonelogistics.client.model.ModelWire;
@@ -23,8 +25,8 @@ public class ClientLoader implements ObjectLoader<RedLogistics_OH, RedLogistics_
 	public void pre(CTMod<RedLogistics_OH, RedLogistics_EH> mod)
 	{
 		RedLogistics_OH holder = mod.getObjectHolder();
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(holder.bronze_conduit), 0, new ModelResourceLocation("redlogistics:bronze_conduit", "inventory"));
-		Core_OH.models.put(new ResourceLocation(holder.getModid(), "models/block/wire"), holder.wireModel = new ModelWire());
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(holder.bronze_conduit), 0, new ModelResourceLocation("redlogistics:bronze_energy_conduit", "inventory"));
+		CTCore_OH.models.put(new ResourceLocation(holder.getModid(), "models/block/wire"), Functions.constant(holder.wireModel = new ModelWire()));
 	}
 	
 	@SideOnly(Side.CLIENT)

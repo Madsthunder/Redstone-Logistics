@@ -1,27 +1,30 @@
 package continuum.redstonelogistics.blocks;
 
-import org.apache.commons.lang3.tuple.Pair;
+import java.util.List;
 
-import com.google.common.base.Predicate;
+import com.google.common.collect.Lists;
 
-import continuum.essentials.block.BlockConnectable;
+import continuum.api.redstonelogistics.ConduitSystem;
+import continuum.api.redstonelogistics.IConduitEnergyStorage;
 import continuum.essentials.block.BlockConnectableBounds;
 import continuum.essentials.block.ConnectableCuboids;
+import continuum.redstonelogistics.tileentity.TileEntityConduit;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import net.minecraftforge.energy.CapabilityEnergy;
+import net.minecraftforge.energy.IEnergyStorage;
 
 public class BlockConduit extends BlockConnectableBounds
 {
+	
 	public BlockConduit(String name, Material material, ConnectableCuboids cuboids)
 	{
-		this(name, material, new CanConnect(), cuboids);
-	}
-	
-	public BlockConduit(String name, Material material, Predicate<Pair<IBlockAccess, BlockPos>> predicate, ConnectableCuboids cuboids)
-	{
-		super(material, predicate, cuboids);
+		super(material, cuboids);
 		this.setUnlocalizedName(name + "_conduit");
 		this.setRegistryName(name + "_conduit");
 		this.translucent = true;
@@ -46,17 +49,10 @@ public class BlockConduit extends BlockConnectableBounds
 		return false;
 	}
 	
-	public static class CanConnect implements Predicate<Pair<IBlockAccess, BlockPos>>
+	@Override
+	public boolean canConnectTo(IBlockAccess access, BlockPos pos, EnumFacing direction)
 	{
-		@Override
-		public boolean apply(Pair<IBlockAccess, BlockPos> input)
-		{
-			IBlockAccess access = input.getLeft();
-			BlockPos pos = input.getRight();
-			IBlockState state = access.getBlockState(pos);
-			if(state.getBlock() instanceof BlockConnectable)
-				return true;
-			return false;
-		}
+		TileEntity entity = access.getTileEntity(pos);
+		return entity instanceof TileEntityConduit ? ((TileEntityConduit)entity).canConnect(direction) : false;
 	}
 }
